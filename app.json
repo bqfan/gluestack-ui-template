@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "gluestack-ui-template",
+    "scheme": "gluestack-ui-template",
     "slug": "gluestack-ui-template",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,6 +24,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "tsconfigPaths": true
     }
   }
 }
