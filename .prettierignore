@@ -1,0 +1,17 @@
+node_modules
+__tests__/
+.vscode/
+android/
+coverage/
+ios/
+.expo
+.expo-shared
+docs/
+cli/
+
+babel.config.js
+metro.config.js
+pnpm-lock.yaml
+src/components/ui/**/*
+tailwind.config.js
+tsconfig.json
