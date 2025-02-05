@@ -1,3 +1,5 @@
+import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
+import typescriptEslintParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import reactNativePlugin from 'eslint-plugin-react-native';
@@ -8,10 +10,20 @@ import unusedImports from 'eslint-plugin-unused-imports';
 export default [
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      parser: typescriptEslintParser,
+      parserOptions: {
+        project: './tsconfig.json', // Path to your tsconfig
+        ecmaFeatures: { jsx: true },
+      },
+    },
     plugins: {
       react: reactPlugin,
       'react-hooks': reactHooksPlugin,
       'react-native': reactNativePlugin,
+      '@typescript-eslint': typescriptEslintPlugin,
       'unused-imports': unusedImports,
       'simple-import-sort': simpleImportSort,
       unicorn,
@@ -54,15 +66,15 @@ export default [
         },
       ],
     },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-    },
+    // languageOptions: {
+    //   parserOptions: {
+    //     ecmaFeatures: {
+    //       jsx: true,
+    //     },
+    //     ecmaVersion: 'latest',
+    //     sourceType: 'module',
+    //   },
+    // },
     settings: {
       react: {
         version: 'detect',
