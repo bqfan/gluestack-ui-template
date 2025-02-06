@@ -1,16 +1,15 @@
 import '../../global.css';
 
-import { Slot } from 'expo-router';
-import { View } from 'react-native';
+import { Stack } from 'expo-router';
 
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 
 export default function RootLayout() {
   return (
     <GluestackUIProvider mode="light">
-      <View className="flex-1">
-        <Slot />
-      </View>
+      <Stack>
+        <Stack.Screen name="(app)" options={{ headerShown: false }} />
+      </Stack>
     </GluestackUIProvider>
   );
 }
