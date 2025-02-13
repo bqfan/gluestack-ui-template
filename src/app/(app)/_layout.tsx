@@ -1,4 +1,5 @@
-import { Stack } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
 import { useColorScheme } from 'react-native';
 import tw from 'twrnc';
 
@@ -6,20 +7,32 @@ export default function AppLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <Stack
+    <Tabs
       screenOptions={{
         headerStyle: tw.style(colorScheme === 'dark' ? 'bg-slate-800' : 'bg-teal-800'),
-        headerTitleStyle: tw.style('text-white dark:text-slate-100'),
+        headerTitleStyle: tw.style('text-white dark:text-teal-600'),
         headerTintColor: tw.color('white'),
-        contentStyle: tw.style('bg-white dark:bg-slate-900'),
+        tabBarLabelStyle: tw`text-teal-600`, // Apply Tailwind style for label text
+        tabBarStyle: tw`bg-white`, // Optional: Customize the background color
       }}
     >
-      <Stack.Screen
-        options={{
-          title: 'gluestack-ui',
-        }}
+      <Tabs.Screen
         name="index"
+        options={{
+          title: 'Home',
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" size={24} />,
+          tabBarButtonTestID: 'home-tab',
+        }}
       />
-    </Stack>
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color, size }) => <Ionicons name="settings-outline" size={24} />,
+          tabBarButtonTestID: 'settings-tab',
+        }}
+      />
+    </Tabs>
   );
 }
