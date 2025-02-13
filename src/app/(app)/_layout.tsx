@@ -1,10 +1,16 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import { useColorScheme } from 'react-native';
 import tw from 'twrnc';
 
+import { useIsFirstTime } from '@/lib/hooks/use-is-first-time';
+
 export default function AppLayout() {
   const colorScheme = useColorScheme();
+  const [isFirstTime] = useIsFirstTime();
+  if (isFirstTime) {
+    return <Redirect href="/onboarding" />;
+  }
 
   return (
     <Tabs

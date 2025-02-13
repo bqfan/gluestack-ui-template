@@ -14,13 +14,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bqfan.gluestackuitemplate"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.bqfan.gluestackuitemplate"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,6 +30,14 @@
     "plugins": ["expo-router"],
     "experiments": {
       "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d3283c39-821e-4bab-b276-4c5cf567ec09"
+      }
     }
   }
 }
