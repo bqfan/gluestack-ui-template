@@ -1,18 +1,29 @@
-module.exports = function(api) {
-    api.cache(true);
+module.exports = function (api) {
+  api.cache(true);
 
-    return {
-        presets: [["babel-preset-expo", {
-            jsxImportSource: "nativewind"
-        }], "nativewind/babel"],
+  return {
+    presets: [
+      [
+        "babel-preset-expo",
+        {
+          jsxImportSource: "nativewind",
+        },
+      ],
+      "nativewind/babel",
+    ],
 
-        plugins: [["module-resolver", {
-            root: ["./"],
-
-            alias: {
-                "@": "./",
-                "tailwind.config": "./tailwind.config.js"
-            }
-        }]]
-    };
+    plugins: [
+      [
+        "module-resolver",
+        {
+          root: ["./src"], // Define the root directory for components
+          alias: {
+            "@/components": "./src/components", // Alias for components
+            "@/assets": "./assets", // Alias for assets (root folder)
+            "tailwind.config": "./tailwind.config.js",
+          },
+        },
+      ],
+    ],
+  };
 };
