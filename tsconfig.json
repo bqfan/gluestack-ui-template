@@ -5,6 +5,8 @@
     "baseUrl": ".", // Important! This resolves relative paths starting from the project root
     "paths": {
       "@/components/*": ["src/components/*"], // For components
+      "@/constants/*": ["src/constants/*"],
+      "@/hooks/*": ["src/hooks/*"], 
       "@/assets/*": ["assets/*"],           // For assets
       "tailwind.config": ["./tailwind.config.js"]
     }
@@ -15,5 +17,10 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "nativewind-env.d.ts"
-  ]
+  ],
+  "exclude": [
+    "node_modules",
+    "src/components/ui/**/*",
+    "assets/**/*",
+  ],
 }
